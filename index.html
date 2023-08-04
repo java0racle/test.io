@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一键拷贝示例</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div id="myDiv">123</div>
+    <button onclick="copyText()">一键拷贝</button>
+
+    <script>
+        function copyText() {
+            const div = document.getElementById('myDiv');
+            const text = div.textContent || div.innerText;
+
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text)
+                    .then(() => {
+                        alert('文本已拷贝到剪贴板');
+                    })
+                    .catch(err => {
+                        console.error('无法拷贝文本: ', err);
+                    });
+            } else {
+                try {
+                    const textarea = document.createElement('textarea');
+                    textarea.value = text;
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textarea);
+                    alert('文本已拷贝到剪贴板');
+                } catch (err) {
+                    console.error('无法拷贝文本: ', err);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
