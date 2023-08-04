@@ -14,14 +14,16 @@
     </script>
 </head>
 <body>
-    <div class="btn">123</div>
-    <button onclick="copyText()">一键拷贝</button>
+    <div id="content">123123123</div>
+    <button class="btn">一键拷贝</button>
 
     <script>
-        var clipboard = new ClipboardJS('.btn');
-
-        clipboard.on('success', function(e) {
-            e.clearSelection();
+        new ClipboardJS('.btn', {
+            text: function(trigger) {
+                var ele = document.getElementById('content');
+                var text = ele.textContent || ele.innerText;
+                return text
+            }
         });
     </script>
 </body>
