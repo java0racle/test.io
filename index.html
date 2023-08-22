@@ -9,6 +9,7 @@
     <script>
         if (window.Worker){
             try{
+                alert(0)
                 new Worker(URL.createObjectURL(new Blob())).terminate();
             } catch(e){
                 alert(1)
