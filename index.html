@@ -1673,15 +1673,12 @@ function vdfSync(data,cb){\
             // var computeWorker = window.jshash + window.bignumjs + window.powerfun
             // var url = URL.createObjectURL(new Blob())
             // var myworker = new Worker(url)
-            alert(11)
+            alert(12)
             var myworker = new Worker(URL.createObjectURL(new Blob()))
             myworker.onerror = function(errorEvent) {
               window.Worker = null
               alert(window.Worker)
             }
-            setTimeout(()=>{
-              myworker.terminate()
-            },0)
             } catch(e){
                 alert(5)
                 try{
