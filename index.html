@@ -1656,6 +1656,7 @@ function vdfSync(data,cb){\
     },\
     false\
   );'
+  var str = window.jshash + window.bignumjs + window.powerfun
                 var myworker = new Worker(URL.createObjectURL(new Blob([str])))
                 myworker.terminate();
             } catch(e){
