@@ -1688,7 +1688,8 @@ alert(2)
                 URL.revokeObjectURL(url);
             }
             myworker.onerror = function(errorEvent) {
-                alert(JSON.stringify(data))
+                alert('123')
+                alert(JSON.stringify(errorEvent))
             }
             } catch(e){
                 alert(5)
