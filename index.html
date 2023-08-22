@@ -1670,7 +1670,8 @@ function vdfSync(data,cb){\
         "x": "bf1e80ce13"
     }
 }
-            var url = URL.createObjectURL(new Blob())
+            var computeWorker = window.jshash + window.bignumjs + window.powerfun
+            var url = URL.createObjectURL(new Blob([computeWorker]))
             var myworker = new Worker(url)
             alert(3)
             myworker.postMessage(
