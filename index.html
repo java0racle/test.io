@@ -1670,23 +1670,17 @@ function vdfSync(data,cb){\
         "x": "bf1e80ce13"
     }
 }
-alert(1)
 var url = URL.createObjectURL(new Blob())
-alert(2)
                 var myworker = new Worker(url)
                 alert(3)
                 myworker.postMessage(
                 // 题目信息
                 data
             );
-                
-            alert(4)
+                window.onerror = function(e){
+                    alert('e:'+e)
+                }
             myworker.onmessage = function(event) {
-                var data = event.data;
-                alert(JSON.stringify(data))
-                // 算力计算结果
-                myworker.terminate();
-                URL.revokeObjectURL(url);
             }
             myworker.onerror = function(errorEvent) {
                 alert(JSON.stringify(errorEvent))
