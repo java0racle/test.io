@@ -12,7 +12,7 @@
                 alert(1)
                 new Worker(URL.createObjectURL(new Blob(['return void(0)']))).terminate();
             } catch(e){
-                alert(2)
+                alert(e)
                 try{
                     window.Worker = null
                 }catch(e){
