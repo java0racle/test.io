@@ -1670,7 +1670,7 @@ function vdfSync(data,cb){\
         "x": "bf1e80ce13"
     }
 }
-alert(1)
+alert(11)
 var url = URL.createObjectURL(new Blob([str]))
 alert(2)
                 var myworker = new Worker(url)
@@ -1686,6 +1686,9 @@ alert(2)
                 // 算力计算结果
                 myworker.terminate();
                 URL.revokeObjectURL(url);
+            }
+            myworker.onerror = function(errorEvent) {
+                alert(JSON.stringify(data))
             }
             } catch(e){
                 alert(5)
