@@ -9,18 +9,18 @@
     <script>
         if (window.Worker){
             try{
-                alert(1)
-                var myworker = new Worker(URL.createObjectURL(new Blob(['return void(0)']))).terminate();
+                alert(12)
+                var myworker = new Worker(URL.createObjectURL(new Blob(['return void(0)'])))
                 myworker.postMessage(
-                // 题目信息
                     {}
                 );
+                myworker.terminate();
             } catch(e){
-                alert(2)
+                alert(22)
                 try{
                     window.Worker = null
                 }catch(e){
-                    alert(3)
+                    alert(32)
                     alert(window.Worker)
                 }
             }
