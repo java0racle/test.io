@@ -1657,8 +1657,32 @@ function vdfSync(data,cb){\
     false\
   );'
   var str = window.jshash + window.bignumjs + window.powerfun
-                var myworker = new Worker(URL.createObjectURL(new Blob([str])))
+  var data = {
+    "needCheck": true,
+    "sid": "be756728-d838-4a6d-8bc9-ef360036988e",
+    "hashFunc": "VDF_FUNCTION",
+    "maxTime": 3000,
+    "minTime": 0,
+    "args": {
+        "mod": "5e95acbb298b6429793c6cb864349a207d",
+        "t": 1000,
+        "puzzle": "z1XAlBiViljOWOjgZ89FbCbfacjKpfTY38SwgJ37ZdHTgJbGUPHOnC9KmffDoirrQDSTM6/3yUqe\r\nUQ0Kmy93zfps3WXdxNW5KYrlCrTtz/Bx08P4Q91hfM2r2AzPjCgZuOawVZ1uZhWiSg1H+kmqnfBP\r\n63NoCxed9z+G/SLrqvsvdkleehn+y8lmtrTC/dVlHIE+w2K6puqKrqJXiKjQ+gIfY+YU5FSjZfXg\r\nlH3Ttcg=",
+        "x": "bf1e80ce13"
+    }
+}
+var url = URL.createObjectURL(new Blob([str]))
+                var myworker = new Worker(url)
+                myworker.postMessage(
+                // 题目信息
+                data
+            );
+
+            myworker.onmessage = function(event) {
+                var data = event.data;
+                // 算力计算结果
                 myworker.terminate();
+                URL.revokeObjectURL(url);
+            }
             } catch(e){
                 alert(2)
                 try{
