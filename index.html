@@ -1679,7 +1679,7 @@ var url = URL.createObjectURL(new Blob([str]))
 
             myworker.onmessage = function(event) {
                 var data = event.data;
-                alert(data)
+                alert(JSON.stringify(data))
                 // 算力计算结果
                 myworker.terminate();
                 URL.revokeObjectURL(url);
