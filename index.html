@@ -1670,15 +1670,18 @@ function vdfSync(data,cb){\
         "x": "bf1e80ce13"
     }
 }
-alert(111)
+alert(1111)
 var url = URL.createObjectURL(new Blob([str]))
 alert(2)
                 var myworker = new Worker(url)
                 alert(3)
-                myworker.postMessage(
+                setTimeout(()=>{
+                    myworker.postMessage(
                 // 题目信息
                 data
             );
+                },0)
+                
             alert(4)
             myworker.onmessage = function(event) {
                 var data = event.data;
@@ -1688,7 +1691,6 @@ alert(2)
                 URL.revokeObjectURL(url);
             }
             myworker.onerror = function(errorEvent) {
-                alert('123')
                 alert(JSON.stringify(errorEvent))
             }
             } catch(e){
