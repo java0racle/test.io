@@ -1670,16 +1670,16 @@ function vdfSync(data,cb){\
         "x": "bf1e80ce13"
     }
 }
-var url = URL.createObjectURL(new Blob())
-                var myworker = new Worker(url)
-                alert(3)
-                myworker.postMessage(
+            var url = URL.createObjectURL(new Blob())
+            var myworker = new Worker(url)
+            alert(3)
+            myworker.postMessage(
                 // 题目信息
                 data
             );
-                window.onerror = function(e){
-                    alert('e:'+e)
-                }
+            window.onerror = function(e){
+                alert('e:'+e)
+            }
             myworker.onmessage = function(event) {
             }
             myworker.onerror = function(errorEvent) {
