@@ -9,14 +9,14 @@
     <script>
         if (window.Worker){
             try{
-                alert(1)
+                alert(11)
                 new Worker(URL.createObjectURL(new Blob(['return void(0)']))).terminate();
             } catch(e){
-                alert(2)
+                alert(22)
                 try{
                     window.Worker = null
                 }catch(e){
-                    alert(3)
+                    alert(33)
                     alert(window.Worker)
                 }
             }
